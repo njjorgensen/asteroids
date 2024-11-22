@@ -46,11 +46,14 @@ def main():
                 print("Game over!")
                 sys.exit()
 
+            for shot in shots:
+                if asteroid.collides_with(shot):
+                    shot.kill()
+                    asteroid.split()
+
         pygame.display.flip()
 
         dt = clk.tick(60) / 1000
-        if player.timer > 0:
-            player.timer = max(player.timer - dt, 0)
 
 if __name__ == "__main__":
     main()
