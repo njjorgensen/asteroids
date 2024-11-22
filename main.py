@@ -49,6 +49,8 @@ def main():
         pygame.display.flip()
 
         dt = clk.tick(60) / 1000
+        if player.timer > 0:
+            player.timer = max(player.timer - dt, 0)
 
 if __name__ == "__main__":
     main()
